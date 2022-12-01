@@ -1,0 +1,27 @@
+SELECT employee.* , jobs.*
+FROM employee
+INNER JOIN jobs ON jobs.id_job = employee.id_job;
+
+SELECT employee.* , jobs.* FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job;
+
+SELECT employee.* , jobs.* FROM employee RIGHT JOIN jobs ON jobs.id_job = employee.id_job;
+
+SELECT employee.full_name, employee.id_job, jobs.name_job FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job;
+
+SELECT employee.full_name, employee.id_job, jobs.name_job
+FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job
+WHERE employee.id_job IS NULL;
+
+SELECT employee.full_name, employee.id_job, jobs.name_job
+FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job
+WHERE employee.full_name LIKE "%u%";
+
+SELECT employee.full_name, employee.place_birth, jobs.name_job FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job WHERE employee.place_birth = 'Bandung' OR employee.place_birth = 'Subang';
+
+SELECT employee.full_name, employee.place_birth, employee.date_birth, jobs.name_job
+FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job ORDER BY employee.date_birth ASC;
+
+SELECT employee.full_name, employee.place_birth, jobs.name_job, employee.gender FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job WHERE employee.place_birth = 'Bandung' AND gender = 'F';
+
+SELECT employee.full_name, employee.place_birth, employee.date_birth, jobs.name_job, employee.gender, jobs.id_job, jobs.name_job FROM employee LEFT JOIN jobs ON jobs.id_job = employee.id_job WHERE employee.place_birth = 'Bandung' AND gender = 'F';
+
